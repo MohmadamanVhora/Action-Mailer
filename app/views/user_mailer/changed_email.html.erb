@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello, <%= @user.email %></h1>
+    <p>
+      You have successfully updated your email address,
+      your previous email was: <strong><%= @old_email %></strong>.<br>
+    </p>
+    <p>
+      To visit the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Have a great day!</p>
+  </body>
+</html>
