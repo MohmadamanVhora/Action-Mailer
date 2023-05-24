@@ -1,0 +1,22 @@
+<div class="container my-5" style="width: 600px;">
+  <div class="row">
+    <div class="col-4">
+      <%= image_tag @user.profile_url, class: "rounded-circle", size: "200x200" %>
+    </div>
+
+    <div class="col-2"></div>
+
+    <div class="col-4 d-flex flex-column justify-content-around">
+      <div>
+        <h5><strong>Username:</strong> <%= @user.name %></h5>
+        <h5><strong>Email:</strong> <%= @user.email %></h5>
+      </div>
+
+      <div>
+        <%= link_to raw('<i class="fa-solid fa-pen-to-square fa-2xl" style="color: #f4e32a;"></i>'), edit_user_path(@user), class: "btn ps-0", title: "Edit" %>
+        <%= link_to raw('<i class="fa-solid fa-trash-can fa-2xl" style="color: #f02828;"></i>'), user_path(@user), class: "btn", title: "Remove", data: { turbo_method: :delete, turbo_confirm: :"Are You Sure?" } %>
+        <%= link_to raw('<i class="fa-solid fa-list fa-2xl" style="color: #12e4f3;"></i>'), users_path, :class => 'btn', title: "All" %>
+      </div>
+    </div>
+  </div>
+</div>

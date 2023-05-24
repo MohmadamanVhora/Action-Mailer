@@ -1,0 +1,33 @@
+<div class="container mt-5" style="width: 700px;">
+  <h2 class="my-3"><%= text %></h2>
+  <%= form_with model: @user, id: "new_user" do |form| %>
+    <div class="mb-3">
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+    
+    <div class="mb-3">
+      <%= form.label :email, class: "form-label" %>
+      <%= form.text_field :email, class: "form-control" %>
+    </div>
+    <% if action_name == "new" %>
+      <div class="mb-3">
+        <%= form.label :password, class: "form-label" %>
+        <%= form.password_field :password, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :password_confirmation, class: "form-label" %>
+        <%= form.password_field :password_confirmation, class: "form-control" %>
+      </div>
+    <% end %>
+
+    <div class="mb-4">
+      <%= form.label :profile, class: "form-label" %>
+      <%= form.file_field :profile, class: "form-control" %>
+    </div>
+    
+    <%= form.submit "Sign up", class: "btn btn-success rounded-1" %>
+    <%= link_to "Cancel", users_path, class: "btn btn-danger rounded-1 ms-2" %>
+  <% end %>
+</div>

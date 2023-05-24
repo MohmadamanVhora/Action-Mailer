@@ -1,0 +1,21 @@
+<div class="container mt-5 w-50">
+  <div>
+    <table class="table container table-hover table-striped">
+      <thead>
+        <tr>
+          <th>Photo</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @users %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-5">
+    <%= link_to "Sign up", new_user_path, class: "btn btn-info me-3 px-3" %>
+  </div>
+</div>
