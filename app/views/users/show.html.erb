@@ -19,4 +19,19 @@
       </div>
     </div>
   </div>
+
+  <div class="mt-5">
+    <table class="table container table-hover table-striped">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Date</th>
+          <th>Enrollments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "event", collection: @events %>
+      </tbody>
+    </table>
+  </div>
 </div>

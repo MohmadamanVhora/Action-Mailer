@@ -1,0 +1,14 @@
+send_events_list_job:
+  cron: "0 0 * * * *"
+  class: "SendEventsListJob"
+  queue: default
+
+create_events_job:
+  cron: "0 * * * *"
+  class: "CreateEventsJob"
+  queue: default
+
+send_reminder_email_job:
+  cron: "0 0 * * *"
+  class: "SendReminderEmailJob"
+  queue: default

@@ -1,0 +1,11 @@
+Events Schedule:-
+
+<% @events.each do |event| %>
+  <% if event.event_date.to_time >= Time.now %>
+    --> Event name: <%= event.event_name %>, Event date: <%= event.event_date %>
+  <% end %>
+<% end %>
+
+For register events, just follow this link: <%= link_to "Events", root_url %>.
+
+Have a great day!
