@@ -18,4 +18,20 @@ class UserMailer < ApplicationMailer
       format.html { render 'user_mailer/changed_email' }
     end
   end
+
+  def send_events_list(users_emails)
+    @events = Event.all
+    mail(to: users_emails, subject: "Available events list") do |format|
+      format.text { render 'user_mailer/send_events_list' }
+      format.html { render 'user_mailer/send_events_list' }
+    end
+  end
+
+  def send_reminder_email(users_emails, event)
+    @event = event
+    mail(to: users_emails, subject: "Reminder email") do |format|
+      format.text { render 'user_mailer/send_reminder_email' }
+      format.html { render 'user_mailer/send_reminder_email' }
+    end
+  end
 end

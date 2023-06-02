@@ -42,6 +42,10 @@ gem 'rmagick', '~> 5.2'
 
 gem 'figaro'
 
+gem 'sidekiq', '~> 6.5', '>= 6.5.9'
+
+gem "sidekiq-cron"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 

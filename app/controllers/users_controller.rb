@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: %i[show edit update destroy]
+  before_action :find_user, only: %i[show edit update destroy enroll_event discard_enrolled_event]
+  before_action :find_event, only: %i[enroll_event discard_enrolled_event]
 
   def index
-    @users = User.all    
+    @users = User.all
   end
 
-  def show; end
+  def show
+    @events = Event.all
+  end
 
   def new
     @user = User.new
@@ -14,7 +17,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserMailer.with(user: @user).welcome_email.deliver_now
       redirect_to user_path(@user), flash: { notice: "User was created successfully"}
     else
       render :new, status: :unprocessable_entity
@@ -38,6 +40,16 @@ class UsersController < ApplicationController
     redirect_to users_path, flash: { notice: "User was deleted successfully"}
   end
   
+  def enroll_event
+    @user.events << @event
+    redirect_to user_path(@user)
+  end
+  
+  def discard_enrolled_event
+    @user.events.destroy(@event)
+    redirect_to user_path(@user)
+  end
+  
   private
 
   def user_params
@@ -46,5 +58,9 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
+  end
+
+  def find_event
+    @event = Event.find(params[:event_id])
   end
 end

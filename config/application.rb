@@ -11,6 +11,8 @@ module ActionMailer
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.action_mailer.default_url_options = { host: 'localhost', port: 3000}
+    config.active_job.queue_adapter = :sidekiq
+    config.time_zone = 'Kolkata'
 
     # Configuration for the application, engines, and railties goes here.
     #

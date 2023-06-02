@@ -1,0 +1,9 @@
+<p>
+  You have Registered in an event,
+</p>
+<pre>Event Details:-
+  Name: <%= @event.event_name %>
+  Date: <%= @event.event_date.to_date %>
+  Time: <%= @event.event_date.strftime("%I:%M %p") %>
+</pre>
+<p>Have a great day!</p>
