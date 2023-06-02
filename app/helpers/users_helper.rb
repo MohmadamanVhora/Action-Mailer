@@ -1,5 +1,5 @@
 module UsersHelper
   def event_enrolled?(event)
-    @user.events.ids.include?(event)
+    @user.events.include?(event)
   end
 end

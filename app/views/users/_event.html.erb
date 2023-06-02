@@ -2,7 +2,7 @@
   <td><%= event.event_name %></td>
   <td><%= event.event_date %></td>
   <td>
-    <% if event_enrolled?(event.id) %>
+    <% if event_enrolled?(event) %>
       <%= link_to "Discard", discard_enrolled_event_user_path(@user.id, event.id), class: "btn btn-danger rounded-1" %>
     <% else %>
       <%= link_to "Enroll", enroll_event_user_path(@user.id, event.id), class: "btn btn-info rounded-1" %>
