@@ -64,7 +64,11 @@ RSpec.describe UserMailer, type: :mailer do
     let(:send_events_list_mail) { UserMailer.send_events_list(users.pluck(:email)) }
 
     it 'send_events_list_email' do
-      expect { send_events_list_mail }.to change { ActionMailer::Base.deliveries.count }.by(10)
+      initial_count = ActionMailer::Base.deliveries.count
+      send_events_list_mail
+      final_count = ActionMailer::Base.deliveries.count
+
+      expect(final_count - initial_count).to eq(users.count)
     end
 
     it 'render subject' do
@@ -89,7 +93,11 @@ RSpec.describe UserMailer, type: :mailer do
     let(:send_reminder_mail) { UserMailer.send_reminder_email(event.users.pluck(:email), event) }
 
     it 'send_events_list_email' do
-      expect { send_reminder_mail }.to change { ActionMailer::Base.deliveries.count }.by(10)
+      initial_count = ActionMailer::Base.deliveries.count
+      send_reminder_mail
+      final_count = ActionMailer::Base.deliveries.count
+
+      expect(final_count - initial_count).to eq(event.users.count)
     end
 
     it 'render subject' do
